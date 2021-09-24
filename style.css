@@ -35,8 +35,7 @@ body {
   grid-area: center;
   font-family: 'Red Hat Display', sans-serif;
   text-align: center;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin: 0 25px;
 }
 
 .first-section .center h1 {
@@ -89,24 +88,24 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   height: 300px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .first-section .people.left-people {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: left;
+  margin-top: -60px;
 }
 
 .first-section .people.right-people {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: right;
+  margin-top: -100px;
 }
 
 .first-section .people .group {
@@ -117,6 +116,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 0 5px;
 }
 
 .first-section .people .group img {
@@ -134,22 +134,37 @@ body {
 }
 
 .vertical-element {
-  width: 50vw;
-  height: 8rem;
-  border-right: 1px solid #b6b6b6;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  color: gray;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.vertical-element p {
+.vertical-element .vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px 0 10px 0;
+}
+
+.vertical-element .vertical hr {
+  width: 1px;
+  height: 60px;
+  margin: 0 23px;
+}
+
+.vertical-element .vertical p {
+  margin: 0;
   border: 1px solid #b6b6b6;
   height: 3rem;
   border-radius: 50%;
@@ -166,8 +181,6 @@ body {
   padding: 4%;
   font-weight: bold;
   background-color: #FAFAFA;
-  -webkit-transform: translate(50%, 50%);
-          transform: translate(50%, 50%);
   font-size: 0.9em;
 }
 
@@ -221,7 +234,11 @@ body {
 }
 
 .footer {
-  background: url(./starter_code/starter-code/assets/desktop/image-footer.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#87bdd6ba), to(#4d96a9)), url(./starter_code/starter-code/assets/desktop/image-footer.jpg);
+  background-image: linear-gradient(to bottom, #87bdd6ba, #4d96a9), url(./starter_code/starter-code/assets/desktop/image-footer.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
@@ -229,7 +246,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 40px 0;
-  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .footer h2 {
@@ -249,7 +268,6 @@ body {
   font-family: Red Hat Display;
   font-style: normal;
   line-height: 26px;
-  letter-spacing: 0px;
   text-align: left;
   width: 33.33%;
   color: white;
@@ -281,7 +299,160 @@ body {
 
 @media screen and (max-width: 768px) {
   .first-section {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
         grid-template-areas: 'left right' 'center center';
+  }
+  .first-section .center {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: center;
+    font-family: 'Red Hat Display', sans-serif;
+    text-align: center;
+    margin: 0 25px;
+  }
+  .first-section .center h1 {
+    color: #28283D;
+    font-size: 55px;
+  }
+  .first-section .center p {
+    color: gray;
+  }
+  .first-section .center .button {
+    padding: 1.2rem 2rem;
+    border-radius: 35px;
+    margin-right: 2%;
+    color: #FAFAFA;
+    border: none;
+    font-weight: 600;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .first-section .center .button span {
+    color: #41cffa;
+  }
+  .first-section .center .button.blue {
+    background-color: #4D96A9;
+  }
+  .first-section .center .button.blue:hover {
+    background-color: #33d1f8;
+  }
+  .first-section .center .button.purple {
+    background-color: #855FB1;
+  }
+  .first-section .center .button.purple:hover {
+    background-color: #ca9dfd;
+  }
+  .first-section .people {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 300px;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .first-section .people.left-people {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: left;
+    margin-top: -60px;
+  }
+  .first-section .people.right-people {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: right;
+    margin-top: -100px;
+  }
+  .first-section .people .group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 5px;
+  }
+  .first-section .people .group img {
+    width: 100%;
+    margin: 5px;
+    border-radius: 50%;
+  }
+  .first-section .people .left-second-group {
+    margin-bottom: 50px;
+  }
+  .first-section .people .right-second-group {
+    margin-top: 50px;
+  }
+  .main-content {
+    text-align: center;
+  }
+  .main-content img {
+    border-radius: 6px;
+    width: 17%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-right: 30px;
+    -ms-grid-columns: auto auto auto auto;
+        grid-template-columns: auto auto auto auto;
+    margin-top: 60px;
+  }
+  .about-modern {
+    font-family: Red Hat Display;
+    font-style: normal;
+    margin-bottom: 30px;
+  }
+  .about-modern p {
+    text-align: center;
+    color: #4D96A9;
+    text-transform: uppercase;
+    width: 50%;
+    margin: 5% auto 0 auto;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+  .about-modern h2 {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 44px;
+    text-align: center;
+    color: #28283D;
+    text-align: center;
+  }
+  .about-modern h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #87879D;
+  }
+  .footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer h2 {
+    width: 80%;
+    text-align: center;
+  }
+  .footer p {
+    width: 80%;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
